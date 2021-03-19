@@ -1,0 +1,189 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb"  Inherits="hidrobio.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Hidrobio S.A.</title>
+    <link href="~/Content/calendario.css" rel="stylesheet" type="text/css" />
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    </head>
+   <body>
+     <form runat="server">
+           <asp:ScriptManager runat="server" EnableScriptGlobalization = "True" EnableScriptLocalization="True">
+
+              <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+
+
+            </Scripts>
+
+           </asp:ScriptManager>
+
+         <script type = "text / javascript">
+    var xPos, yPos;
+    var prm = Sys.WebForms.PageRequestManager.getInstance ();
+    prm.add_beginRequest (BeginRequestHandler);
+    prm.add_endRequest (EndRequestHandler);
+    function BeginRequestHandler (sender, args) {
+        xPos = $ get ('scrollDiv'). scrollLeft;
+        yPos = $ get ('scrollDiv'). scrollTop;
+    }
+    function EndRequestHandler (remitente, args) {
+        $ get ('scrollDiv'). scrollLeft = xPos;
+        $ get ('scrollDiv'). scrollTop = yPos;
+    }
+</script>
+        
+           <div class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark navbar-expand-md" style="left: 0; right: 0; top: 0; height: 44px">
+            <div class="container">
+                <div class="navbar-header">
+                  
+                   <a class="navbar-brand" runat="server" href="default.aspx"><strong>Hidrobio S.A.</strong></a>
+                </div>
+                 <strong>
+                 <asp:Menu ID="Menu1" runat="server" BackColor="#343A40" DynamicHorizontalOffset="2" Font-Names="Cambria, Cochin, Georgia, Times, Times New Roman, serif" Font-Size="Large" ForeColor="white" Orientation="Horizontal" StaticSubMenuIndent="10px">
+                     <DynamicHoverStyle BackColor="#808B96" ForeColor="White" />
+                     <DynamicMenuItemStyle HorizontalPadding="20px" VerticalPadding="2px" BackColor="#212F3D" />
+                     <DynamicMenuStyle BackColor="#28B463" />
+                     <DynamicSelectedStyle BackColor="#145A32" />
+             <Items>
+                 <asp:MenuItem Text="Mantenimiento" Value="Mantenimiento">
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/clientes.aspx" Text="Clientes" Value="Clientes"></asp:MenuItem>
+                     <asp:MenuItem Text="Productos" Value="Productos" NavigateUrl="~/Mantenimiento/productos.aspx">
+                         <asp:MenuItem NavigateUrl="~/Mantenimiento/productos.aspx" Text="Productos" Value="Productos"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Mantenimiento/tipoProducto.aspx" Text="Tipo Producto" Value="Tipo Producto"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Mantenimiento/stProductos.aspx" Text="Sub Tipo Prod" Value="Sub Tipo Prod"></asp:MenuItem>
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Personales" Value="Personales" NavigateUrl="~/Mantenimiento/personales.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Tipo de Empaques" Value="Tipo de Empaques" NavigateUrl="~/Mantenimiento/empaque.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Tipo de Pago" Value="Nuevo elemento" NavigateUrl="~/Mantenimiento/tipoPago.aspx"></asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/Mantenimiento/proveedor.aspx" Text="Proveedores" Value="Proveedores"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/bancos.aspx" Text="Bancos" Value="Bancos"></asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/Gastos/itemGastos.aspx" Text="Item de Gastos" Value="Item de Gastos"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/rubros.aspx" Text="Rubros Gastos" Value="Rubros Gastos"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/moviles.aspx" Text="Móviles" Value="Móviles"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/ciudades.aspx" Text="Ciudades" Value="Ciudades"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Mantenimiento/barrios.aspx" Text="Barrios" Value="Barrios"></asp:MenuItem>
+                 </asp:MenuItem>
+                 <asp:MenuItem Text="| Stock" Value="Stock">
+                     <asp:MenuItem Text="Cosechas" Value="Cosechas">
+                         <asp:MenuItem NavigateUrl="~/Productores/cosecha.aspx" Text="Cargar Cosechas" Value="Cargar Cosechas"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Productores/anularCosecha.aspx" Text="Anular Cosechas" Value="Anular Cosechas"></asp:MenuItem>
+                      
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Acopios" Value="Acopios">
+                         <asp:MenuItem NavigateUrl="~/Acopio/acopio.aspx" Text="Cargar Acopio" Value="Cargar Acopio"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Acopio/anularAcopio.aspx" Text="Anular Acopio" Value="Anular Acopio"></asp:MenuItem>
+                       
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Empaquetar" Value="Empaquetar">
+                         <asp:MenuItem NavigateUrl="~/Empaquetar/empaquetar.aspx" Text="Empaquetar Productos" Value="Empaquetar Productos"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Empaquetar/anularEmpaquetados.aspx" Text="Anular Empaquetado" Value="Anular Empaquetado"></asp:MenuItem>
+                        
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Mermas" Value="Mermas">
+                         <asp:MenuItem NavigateUrl="~/Ventas/mermas.aspx" Text="Cargar Mermas" Value="Cargar Mermas"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Ventas/anularMermas.aspx" Text="Anular Mermas" Value="Anular Mermas"></asp:MenuItem>
+                     
+                     </asp:MenuItem>
+                 </asp:MenuItem>
+                 <asp:MenuItem Text="| Ventas" Value="Nuevo elemento">
+                     <asp:MenuItem Text="Ventas" Value="Ventas">
+                         <asp:MenuItem NavigateUrl="~/Ventas/ventas.aspx" Text="Cargar Ventas" Value="Cargar Ventas"></asp:MenuItem>
+                          <asp:MenuItem NavigateUrl="~/Ventas/ActualizarVentas.aspx" Text="Actualizar Ventas" Value="Actualizar Ventas"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Ventas/AnularVentas.aspx" Text="Anular Ventas" Value="Anular Ventas"></asp:MenuItem>
+                        
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Nota de Crédito" Value="Nota de Crédito">
+                         <asp:MenuItem NavigateUrl="~/Ventas/notaCredito.aspx" Text="Cargar NC" Value="Cargar NC"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Ventas/anularNC.aspx" Text="Anular NC" Value="Anular NC"></asp:MenuItem>
+                        
+                     </asp:MenuItem>
+                     <asp:MenuItem Text="Repartos" Value="Repartos">
+                         <asp:MenuItem Text="Asignar Reparto" Value="Asignar Reparto" NavigateUrl="~/Reparto/reparto.aspx"></asp:MenuItem>
+                         <asp:MenuItem Text="Reparto Choferes" Value="Reparto Choferes" NavigateUrl="~/Reparto/listarReparto.aspx"></asp:MenuItem>
+                          <asp:MenuItem Text="Rendición Reparto" Value="Rendición Reparto" NavigateUrl="~/Reparto/rendicionReparto.aspx"></asp:MenuItem>
+                         <asp:MenuItem Text="Preparar Pedidos" Value="Preparar Pedidos" NavigateUrl="~/Reparto/prepararPedidos.aspx"></asp:MenuItem>
+                         <asp:MenuItem Text="Anular Repartos" Value="Anular Repartos" NavigateUrl="~/Reparto/reparto_anular.aspx"></asp:MenuItem>
+                     </asp:MenuItem>
+                 </asp:MenuItem>
+                 <asp:MenuItem Text="| Cobros" Value="Cobros">
+                     <asp:MenuItem Text="Cobros" Value="Cobros" NavigateUrl="~/cobros/cobros.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Anular Cobros" Value="Anular Cobros" NavigateUrl="~/cobros/anularCobros.aspx"></asp:MenuItem>
+                    
+                 </asp:MenuItem>
+                 <asp:MenuItem Text="| Gastos" Value="Gastos">
+                     <asp:MenuItem Text="Cargar Gastos" Value="Cargar Gastos" NavigateUrl="~/Gastos/gastos.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Cargar Insumos" Value="Cargar Insumos" NavigateUrl="~/Gastos/gastosInsumos.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Cargar Combustible" Value="Cargar Combustible" NavigateUrl="~/Gastos/gastosCombustible.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Anular Gastos" Value="Anular Gastos" NavigateUrl="~/Gastos/AnularGastos.aspx"></asp:MenuItem>
+                 </asp:MenuItem>
+
+                 <asp:MenuItem Text="| Pagos" Value="Pagos">
+                     <asp:MenuItem Text="Generar OP" Value="Generar OP" NavigateUrl="~/Pagos/op.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Anular OP" Value="Anular OP" NavigateUrl="~/Pagos/anularop.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Pagos" Value="Pagos" NavigateUrl="~/Pagos/pagos.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Anular Pagos" Value="Anular Pagos" NavigateUrl="~/Pagos/anularPago.aspx"></asp:MenuItem>
+                 </asp:MenuItem>
+                 <asp:MenuItem Text="| Informes" Value="Nuevo elemento">
+                       <asp:MenuItem NavigateUrl="~/Acopio/informeAcopio.aspx" Text="Informes de Acopios" Value="Informes de Acopios"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Acopio/infAcopioProv.aspx" Text="Inf. de Acopios/Proveedor" Value="Inf. de Acopios/Proveedor"></asp:MenuItem>
+                     <asp:MenuItem Text="Ventas por Producto" Value="Ventas por Producto" NavigateUrl="~/Informes/infVentasProd.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Informes de OP" Value="Informes de OP" NavigateUrl="~/Informes/informeOp.aspx"></asp:MenuItem>
+                       <asp:MenuItem Text="Informe de Gastos" Value="Informe de Gastos" NavigateUrl="~/Gastos/informeGastos.aspx"></asp:MenuItem>
+                       <asp:MenuItem Text="Informe de Combustible" Value="Informe de Combustible" NavigateUrl="~/Gastos/informeCombustible.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Informe de Cobros" Value="Informe de Cobros" NavigateUrl="~/cobros/informeCobros.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Saldo Clientes" Value="Saldo Clientes" NavigateUrl="~/cobros/informeSaldos.aspx"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Productores/informeCosecha.aspx" Text="Informes de Cosechas" Value="Informes de Cosechas"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Empaquetar/informeEmpaquetados.aspx" Text="Informe de Empaquetado" Value="Informe de Empaquetado"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="~/Ventas/informeMermas.aspx" Text="Informe Mermas" Value="Informe Mermas"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Ventas/informesNC.aspx" Text="Informes de NC" Value="Informes de NC"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Ventas/informeVentas.aspx" Text="Informes de Ventas" Value="Informes de Ventas"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Ventas/informeVentasClientes.aspx" Text="Ventas por Cliente" Value="Ventas por Cliente"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Ventas/informeVentasAnuladas.aspx" Text="Ventas Anuladas" Value="Ventas Anuladas"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Informes/informePago.aspx" Text="Informe de Pagos" Value="Informe de Pagos"></asp:MenuItem>
+                 </asp:MenuItem>
+             </Items>
+                     <StaticHoverStyle BackColor="#5D6D7E" ForeColor="White" />
+                     <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                     <StaticSelectedStyle BackColor="#507CD1" />
+         </asp:Menu>
+                 </strong>
+                 </div>
+                </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Desarrollo ASCS</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,172 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="hidrobio.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Hidrobio S.A.</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+    <body>
+     <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+
+
+            </Scripts>
+
+
+        </asp:ScriptManager>
+
+
+       <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark navbar-expand-md" style="background-color: #0B3B24;">
+
+    <div class="container">
+        <div class="navbar-header">
+
+            <a class="navbar-brand" runat="server" href="default.aspx">Hidrobio S.A.</a>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             
+                <%--<li class="btn-group">--%>
+         
+                 <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-labelledby="navbarDropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimiento</a>
+                 <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="/Mantenimiento/clientes.aspx">Clientes</a>
+            <a class="dropdown-item" href="/Mantenimiento/productos.aspx">Productos</a>
+            <a class="dropdown-item" href="/Mantenimiento/personales.aspx">Personales</a>
+            <a class="dropdown-item" href="/Mantenimiento/empaque.aspx">Empaques</a>
+            <a class="dropdown-item" href="/Mantenimiento/tipoPago.aspx">Tipo de Pago</a>
+            <a class="dropdown-item" href="/Mantenimiento/tipoProducto.aspx">Tipo Producto</a>
+            <a class="dropdown-item" href="/Mantenimiento/bancos.aspx">Bancos</a>
+            <a class="dropdown-item" href="/Mantenimiento/rubros.aspx">Rubros Gastos</a>
+            <a class="dropdown-item" href="/Mantenimiento/moviles.aspx">M&#xF3;viles</a>
+            <a class="dropdown-item" href="/Mantenimiento/ciudades.aspx">Ciudades</a>
+            <a class="dropdown-item" href="/Mantenimiento/barrios.aspx">Barrios</a>
+              
+               </div> 
+   
+
+
+         <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stock</a>
+    <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="/Productores/cosecha.aspx">Cargar Cosechas</a>
+            <a class="dropdown-item"  href="/Productores/anularCosecha.aspx">Anular Cosechas</a>
+            <a class="dropdown-item" href="/Productores/informeCosecha.aspx">Informes de Cosechas</a>
+        <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Acopio/acopio.aspx">Cargar Acopio</a>
+                <a class="dropdown-item" href="/Acopio/anularAcopio.aspx">Anular Acopio</a>
+                <a  class="dropdown-item" href="/Acopio/informeAcopio.aspx">Informes de Acopios</a>
+          <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Empaquetar/empaquetar.aspx">Empaquetar Productos</a>
+                <a  class="dropdown-item" href="/Empaquetar/anularEmpaquetados.aspx">Anular Empaquetado</a>
+                <a  class="dropdown-item" href="/Empaquetar/informeEmpaquetados.aspx">Informe de Empaquetado</a>
+          <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/Ventas/mermas.aspx">Mermas</a>
+        <a class="dropdown-item" href="/Ventas/anularMermas.aspx">Anular Mermas</a>
+        <a class="dropdown-item" href="/Ventas/informeMermas.aspx">Informes de Mermas</a>
+    </div>
+
+  </li>
+        
+                 <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gastos</a>
+    <div class="dropdown-menu">
+
+           
+    </div>
+
+  </li>
+
+
+ <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ventas</a>
+    <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="/Ventas/ventas.aspx">Cargar Ventas</a>
+            <a class="dropdown-item" href="/Ventas/informeVentas.aspx">Informes de Ventas</a>
+            <a class="dropdown-item"  href="/Ventas/anularVentas.aspx">Anular Ventas</a>
+            <a class="dropdown-item" href="/Ventas/informeVentasAnuladas.aspx">Informes de Ventas Anuladas</a>
+        <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Ventas/notaCredito.aspx">Nota de Cr&#xE9;dito</a>
+                <a  class="dropdown-item" href="/Ventas/anularNC.aspx">Anular NC</a>
+                <a class="dropdown-item" href="/Ventas/informesNC.aspx">Informes de Nota Cr&#xE9;dito</a>
+         <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Ventas/actualizarVentas.aspx">Asignar Reparto</a>
+                <a  class="dropdown-item" href="/Ventas/prepararPedidos.aspx">Preparar Pedidos</a>
+                <a class="dropdown-item" href="/Ventas/listarreparto.aspx">Reparto Choferes</a>
+                <a  class="dropdown-item" href="anularAcopio.aspx">Anular Repartos</a>
+           
+    </div>
+
+<li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Pagos</a>
+    <div class="dropdown-menu">
+
+           
+           
+    </div>
+                  
+          <li class="nav-item dropdown" aria-labelledby="navbarDropdown" style="left: 2px; top: -3px; width: 91px; height: 26px">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Cobros</a>
+    <div class="dropdown-menu">
+
+            <a class="dropdown-item" href="cobros.aspx">Cobros</a>
+            <a class="dropdown-item" href="informecobros.aspx">Informe de Cobros</a>
+            <a class="dropdown-item" href="informeSaldos.aspx">Saldo Clientes</a>
+            <a class="dropdown-item" href="Ventas/informeVentasAnuladas.aspx">Informes de Ventas Anuladas</a>
+             
+    </div>
+            <li class="nav-item dropdown" aria-labelledby="navbarDropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Informes</a>
+    <div class="dropdown-menu">
+
+           
+           
+    </div>
+        </ul>  
+          </div>
+</div>
+             </div>
+</nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Desarrollo ASCS</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
