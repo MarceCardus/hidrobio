@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "hidrobio", "hidrobio.vbproj
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "hidrobioWF", "..\hidrobioWF\hidrobioWF.vbproj", "{0B506217-E5D8-4088-825F-C6EF27F0C199}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HidrobioWS", "..\HidrobioWS\HidrobioWS.vbproj", "{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0B506217-E5D8-4088-825F-C6EF27F0C199}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B506217-E5D8-4088-825F-C6EF27F0C199}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B506217-E5D8-4088-825F-C6EF27F0C199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

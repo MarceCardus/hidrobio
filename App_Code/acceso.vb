@@ -10,7 +10,7 @@ Public Class acceso
         Dim resultado As String
         Try
             'Traer el Id, Nombre y Contraseña del usuario
-            sql = "Select accCod,accNombre from vUsuario " _
+            sql = "Select accCod,accNombre from acceso " _
              & " where accNombre = '" & Usuario & "'"
             Comandos = New MySqlCommand(sql, conectar.conexionBD)
             Comandos.Connection.Open()
