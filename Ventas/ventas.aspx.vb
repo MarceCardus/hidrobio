@@ -6,6 +6,7 @@ Public Class ventas
     Dim fila As DataRow
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        MaintainScrollPositionOnPostBack = True
 
         If Not IsPostBack Then
             Dim cmdTabla As New cVentas
@@ -28,7 +29,7 @@ Public Class ventas
             txtFactura.Enabled = True
             lblCredito.Enabled = False
             txtDias.Enabled = False
-            MaintainScrollPositionOnPostBack = True
+
         End If
     End Sub
 
@@ -381,27 +382,27 @@ Public Class ventas
                     '  Exit For
                 End If
                 If ddl.SelectedValue = 5 Then
-                        tabla.Rows(i)("5") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                        tabla.Rows(i)("10") = 0
-                        tabla.Rows(i)("Excenta") = 0
+                    tabla.Rows(i)("5") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                    tabla.Rows(i)("10") = 0
+                    tabla.Rows(i)("Excenta") = 0
 
-                        tabla.Rows(i)("Impuesto") = 5
+                    tabla.Rows(i)("Impuesto") = 5
 
-                    ElseIf ddl.SelectedValue = 10 Then
-                        tabla.Rows(i)("10") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                        tabla.Rows(i)("5") = 0
-                        tabla.Rows(i)("Excenta") = 0
-                        tabla.Rows(i)("Impuesto") = 10
-
-
-                    Else
-                        tabla.Rows(i)("Excenta") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                        tabla.Rows(i)("5") = 0
-                        tabla.Rows(i)("10") = 0
-                        tabla.Rows(i)("Impuesto") = 0
+                ElseIf ddl.SelectedValue = 10 Then
+                    tabla.Rows(i)("10") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                    tabla.Rows(i)("5") = 0
+                    tabla.Rows(i)("Excenta") = 0
+                    tabla.Rows(i)("Impuesto") = 10
 
 
-                    End If
+                Else
+                    tabla.Rows(i)("Excenta") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                    tabla.Rows(i)("5") = 0
+                    tabla.Rows(i)("10") = 0
+                    tabla.Rows(i)("Impuesto") = 0
+
+
+                End If
 
 
 

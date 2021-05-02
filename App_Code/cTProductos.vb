@@ -97,7 +97,7 @@ Public Class cTProductos
     End Function
 
     Public Function cgSTProd() As DataSet
-        Dim daRubros As New MySqlDataAdapter("select * from vSTProd", conexion)
+        Dim daRubros As New MySqlDataAdapter("select * from vstprod", conexion)
         Dim dsRubros As New DataSet()
 
         dsRubros.Clear()

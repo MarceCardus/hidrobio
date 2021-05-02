@@ -1,8 +1,21 @@
-﻿<%@ Page Title="Ventas" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master"  CodeBehind="ventas.aspx.vb" Inherits="hidrobio.ventas" %>
+﻿<%@ Page Title="Ventas"  MaintainScrollPositionOnPostback="true" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master"  CodeBehind="ventas.aspx.vb" Inherits="hidrobio.ventas" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+      <script type = "text / javascript">
+    var xPos, yPos;
+    var prm = Sys.WebForms.PageRequestManager.getInstance ();
+    prm.add_beginRequest (BeginRequestHandler);
+    prm.add_endRequest (EndRequestHandler);
+    function BeginRequestHandler (sender, args) {
+        xPos = $ get ('scrollDiv'). scrollLeft;
+        yPos = $ get ('scrollDiv'). scrollTop;
+    }
+    function EndRequestHandler (remitente, args) {
+        $ get ('scrollDiv'). scrollLeft = xPos;
+        $ get ('scrollDiv'). scrollTop = yPos;
+    }
+</script>
 
 
      <table border="1" class="nav-justified">
@@ -407,7 +420,7 @@
                         <strong>
                         <asp:Label ID="lblResultado" runat="server" style="color: #FF6600; background-color: #FFFFFF" Visible="False"></asp:Label>
                         &nbsp;&nbsp;&nbsp;</strong>
-                    </ContentTemplate>
+                                          </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
         </tr>

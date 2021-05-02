@@ -43,20 +43,7 @@
 
            </asp:ScriptManager>
 
-         <script type = "text / javascript">
-    var xPos, yPos;
-    var prm = Sys.WebForms.PageRequestManager.getInstance ();
-    prm.add_beginRequest (BeginRequestHandler);
-    prm.add_endRequest (EndRequestHandler);
-    function BeginRequestHandler (sender, args) {
-        xPos = $ get ('scrollDiv'). scrollLeft;
-        yPos = $ get ('scrollDiv'). scrollTop;
-    }
-    function EndRequestHandler (remitente, args) {
-        $ get ('scrollDiv'). scrollLeft = xPos;
-        $ get ('scrollDiv'). scrollTop = yPos;
-    }
-</script>
+       
         
            <div class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark navbar-expand-md" style="left: 0; right: 0; top: 0; height: 44px">
             <div class="container">
