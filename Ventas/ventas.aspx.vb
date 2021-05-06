@@ -13,10 +13,7 @@ Public Class ventas
             Dim fact As Integer
             fact = TraerNroFactura() + 1
             lblResultado.Visible = False
-            MaintainScrollPositionOnPostBack = True
-
             txtFactura.Text = "001-009-" & fact
-
             Session("Tabla") = cmdTabla.cargarTablaVentas
             txtfecha.Text = Date.Now.ToString("yyyy-MM-dd")
             cargarSubTipo()
@@ -453,27 +450,27 @@ Public Class ventas
 
 
             If ddl.SelectedValue = 5 Then
-                    tabla.Rows(i)("5") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                    tabla.Rows(i)("10") = 0
-                    tabla.Rows(i)("Excenta") = 0
+                tabla.Rows(i)("5") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                tabla.Rows(i)("10") = 0
+                tabla.Rows(i)("Excenta") = 0
 
-                    tabla.Rows(i)("Impuesto") = 5
+                tabla.Rows(i)("Impuesto") = 5
 
-                ElseIf ddl.SelectedValue = 10 Then
-                    tabla.Rows(i)("10") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                    tabla.Rows(i)("5") = 0
-                    tabla.Rows(i)("Excenta") = 0
-                    tabla.Rows(i)("Impuesto") = 10
-
-
-                Else
-                    tabla.Rows(i)("Excenta") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
-                    tabla.Rows(i)("5") = 0
-                    tabla.Rows(i)("10") = 0
-                    tabla.Rows(i)("Impuesto") = 0
+            ElseIf ddl.SelectedValue = 10 Then
+                tabla.Rows(i)("10") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                tabla.Rows(i)("5") = 0
+                tabla.Rows(i)("Excenta") = 0
+                tabla.Rows(i)("Impuesto") = 10
 
 
-                End If
+            Else
+                tabla.Rows(i)("Excenta") = Convert.ToDouble(CDec(txtCant.Text) * CDbl(txtUnit.Text)).ToString("N0")
+                tabla.Rows(i)("5") = 0
+                tabla.Rows(i)("10") = 0
+                tabla.Rows(i)("Impuesto") = 0
+
+
+            End If
 
 
         Next

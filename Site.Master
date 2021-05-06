@@ -5,6 +5,7 @@
 <html lang="es">
 <head runat="server">
 
+   
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -38,12 +39,11 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
 
-
-            </Scripts>
-
+                   </Scripts>     
+              
            </asp:ScriptManager>
-
-       
+        
+          
         
            <div class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark navbar-expand-md" style="left: 0; right: 0; top: 0; height: 44px">
             <div class="container">
@@ -101,7 +101,7 @@
                  <asp:MenuItem Text="| Ventas" Value="Nuevo elemento">
                      <asp:MenuItem Text="Ventas" Value="Ventas">
                          <asp:MenuItem NavigateUrl="~/Ventas/ventas.aspx" Text="Cargar Ventas" Value="Cargar Ventas"></asp:MenuItem>
-                          <asp:MenuItem NavigateUrl="~/Ventas/ActualizarVentas.aspx" Text="Actualizar Ventas" Value="Actualizar Ventas"></asp:MenuItem>
+                           <asp:MenuItem NavigateUrl="~/Ventas/ActualizarVentas.aspx" Text="Actualizar Ventas" Value="Actualizar Ventas"></asp:MenuItem>
                          <asp:MenuItem NavigateUrl="~/Ventas/AnularVentas.aspx" Text="Anular Ventas" Value="Anular Ventas"></asp:MenuItem>
                         
                      </asp:MenuItem>

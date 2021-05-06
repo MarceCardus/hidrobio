@@ -1,0 +1,13 @@
+<!--
+    Puede encontrar definiciones de explorador existentes en
+    <windir>\Microsoft.NET\Framework\<ver>\CONFIG\Browsers
+-->
+<browsers>
+  
+    <browser refID="Mozilla">
+        <capabilities>
+			<capability name="supportsMaintainScrollPositionOnPostback"
+					  value="true" />
+        </capabilities>
+    </browser>
+</browsers>
