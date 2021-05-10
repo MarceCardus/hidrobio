@@ -9,6 +9,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "hidrobioWF", "..\hidrobioWF
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HidrobioWS", "..\HidrobioWS\HidrobioWS.vbproj", "{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Dominio", "..\Dominio\Dominio.vbproj", "{BCB35947-BD4A-4D24-B858-C3C35A0B88D6}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AccesoDatos", "..\AccesoDatos\AccesoDatos.vbproj", "{AD427EDB-A619-41E6-884D-C0CBE2E08791}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E283D5F5-F8CF-43F7-9BB9-3316A0B42854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCB35947-BD4A-4D24-B858-C3C35A0B88D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCB35947-BD4A-4D24-B858-C3C35A0B88D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCB35947-BD4A-4D24-B858-C3C35A0B88D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCB35947-BD4A-4D24-B858-C3C35A0B88D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD427EDB-A619-41E6-884D-C0CBE2E08791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD427EDB-A619-41E6-884D-C0CBE2E08791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD427EDB-A619-41E6-884D-C0CBE2E08791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD427EDB-A619-41E6-884D-C0CBE2E08791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

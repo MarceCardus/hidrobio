@@ -310,6 +310,7 @@
     <Content Include="Gastos\informeCombustible.aspx" />
     <Content Include="Gastos\informeGastos.aspx" />
     <Content Include="Gastos\itemGastos.aspx" />
+    <Content Include="gvVentas.ascx" />
     <Content Include="imagenes\actualizar.png" />
     <Content Include="imagenes\buscar.png" />
     <Content Include="imagenes\buscar2.png" />
@@ -689,6 +690,13 @@
     <Compile Include="Gastos\itemGastos.aspx.vb">
       <DependentUpon>itemGastos.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="gvVentas.ascx.designer.vb">
+      <DependentUpon>gvVentas.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="gvVentas.ascx.vb">
+      <DependentUpon>gvVentas.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Informes\informePago.aspx.designer.vb">
       <DependentUpon>informePago.aspx</DependentUpon>

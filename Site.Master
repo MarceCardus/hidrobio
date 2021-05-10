@@ -17,6 +17,7 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        
     </head>
    <body>
      <form runat="server">
@@ -40,11 +41,11 @@
                 <%--Site Scripts--%>
 
                    </Scripts>     
-              
+      
+
            </asp:ScriptManager>
         
-          
-        
+                          
            <div class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark navbar-expand-md" style="left: 0; right: 0; top: 0; height: 44px">
             <div class="container">
                 <div class="navbar-header">

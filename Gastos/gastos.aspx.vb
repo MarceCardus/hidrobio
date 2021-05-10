@@ -56,8 +56,7 @@
         lblProv.Visible = True
     End Sub
     Sub btnGuardar_Click()
-        Dim row As GridViewRow
-        Dim i As Integer
+
         'Creacion de variables
         Dim mensaje2 As String = ""
         tabla = Session("TablaItem")

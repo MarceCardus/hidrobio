@@ -13,7 +13,7 @@ Public Class ventas
             Dim fact As Integer
             fact = TraerNroFactura() + 1
             lblResultado.Visible = False
-            txtFactura.Text = "001-009-" & fact
+            txtFactura.Text = "001-003-" & fact
             Session("Tabla") = cmdTabla.cargarTablaVentas
             txtfecha.Text = Date.Now.ToString("yyyy-MM-dd")
             cargarSubTipo()
@@ -59,11 +59,16 @@ Public Class ventas
                 e.Row.Cells(6).HorizontalAlign = HorizontalAlign.Center
                 e.Row.Font.Bold = True
 
+
             End If
 
         Catch ex As Exception
             ex.Message.ToString()
         End Try
+
+
+
+
 
     End Sub
 
@@ -483,12 +488,13 @@ Public Class ventas
     End Sub
 
     Protected Sub txtgvCant_TextChanged(sender As Object, e As EventArgs)
-        Dim txtUnitario As TextBox = CType(sender, TextBox)
-        Dim row As GridViewRow = CType(txtUnitario.Parent.Parent, GridViewRow)
+        Dim txtCantidad As TextBox = CType(sender, TextBox)
+        Dim row As GridViewRow = CType(txtCantidad.Parent.Parent, GridViewRow)
         Dim fila As Integer = row.RowIndex
         actualizarGrillaDatos()
-        txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
-        SetFocus(txtUnitario)
+        txtCantidad = gvDatos.Rows(fila).FindControl("txtgvCant")
+        ' SetFocus(txtCantidad)
+        Session("event_controle") = (CType(sender, TextBox))
     End Sub
 
     Protected Sub txtgvUnit_TextChanged(sender As Object, e As EventArgs)
@@ -497,9 +503,21 @@ Public Class ventas
         Dim fila As Integer = row.RowIndex
         actualizarGrillaDatos()
         txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
-        SetFocus(txtUnitario)
-    End Sub
+        '  SetFocus(txtUnitario)
+        Session("event_controle") = (CType(sender, TextBox))
 
+    End Sub
+    Protected Sub Page_PreRender(ByVal sender As Object, ByVal e As EventArgs)
+        Try
+
+            If Session("event_controle") IsNot Nothing Then
+                Dim controle As TextBox = CType(Session("event_controle"), TextBox)
+                controle.Focus()
+            End If
+
+        Catch inEx As InvalidCastException
+        End Try
+    End Sub
     Sub btnNuevo_Click()
         Response.Redirect("~/Ventas/ventas.aspx")
     End Sub
