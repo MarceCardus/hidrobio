@@ -4,8 +4,23 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-     <table border="1" class="nav-justified">
+      <script src="http://code.jquery.com/jquery-1.11.3.js" type="text/javascript"></script>
+    <script type="text/javascript">   
+        $(document).ready(function () {
+            maintainScrollPosition();
+        });
+        function pageLoad() {
+            maintainScrollPosition();
+        }
+        function maintainScrollPosition() {
+            $("#dvScroll").scrollTop($('#<%=hfScrollPosition.ClientID%>').val());
+        }   
+        function setScrollPosition(scrollValue) {
+            $('#<%=hfScrollPosition.ClientID%>').val(scrollValue);
+        }
+    </script>
+   
+    <table border="1" class="nav-justified">
         <tr>
             <td colspan="3" style="font-size: x-large; background-color: #666666; color: #FFFFFF;"><span style="font-weight: bold">Ventas</span></td>
         </tr>
@@ -320,8 +335,13 @@
         </tr>
         <tr>
             <td style="height: 22px" colspan="3">
+                                
+                                    
+                                
                                     <asp:UpdatePanel ID="UpdatePanel24" runat="server">
                                         <ContentTemplate>
+                                             <asp:HiddenField ID="hfScrollPosition" Value="0" runat="server" />
+                                            <div id="dvScroll" class="divcss" onscroll="setScrollPosition(this.scrollTop);">
                                             <asp:GridView ID="gvDatos" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" ShowFooter="True" Width="885px">
                                                 <Columns>
                                                     <asp:BoundField DataField="Linea" />
@@ -339,7 +359,7 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Unitario">
                                                         <ItemTemplate>
-                                                            <asp:UpdatePanel ID="UpdatePanel26" runat="server">
+                                                            <asp:UpdatePanel ID="UpdatePanel26"  runat="server">
                                                                 <ContentTemplate>
                                                                     <asp:TextBox ID="txtgvUnit" runat="server" AutoPostBack="True"  OnTextChanged="txtgvUnit_TextChanged" Text='<%# Bind("Unitario") %>' Width="80px"></asp:TextBox>
                                                                 </ContentTemplate>
@@ -372,8 +392,12 @@
                                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                                 <SortedDescendingHeaderStyle BackColor="#00547E" />
                                             </asp:GridView>
+                                                 </div>
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
+                           
+                                   
+                           
             </td>
         </tr>
         <tr>

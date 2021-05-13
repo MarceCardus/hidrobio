@@ -488,23 +488,23 @@ Public Class ventas
     End Sub
 
     Protected Sub txtgvCant_TextChanged(sender As Object, e As EventArgs)
-        ' Dim txtCantidad As TextBox = CType(sender, TextBox)
-        'Dim row As GridViewRow = CType(txtCantidad.Parent.Parent.Parent.Parent, GridViewRow)
-        ' Dim fila As Integer = row.RowIndex
+        Dim txtCantidad As TextBox = CType(sender, TextBox)
+        Dim row As GridViewRow = CType(txtCantidad.Parent.Parent.Parent.Parent, GridViewRow)
+        Dim fila As Integer = row.RowIndex
         actualizarGrillaDatos()
-        ' txtCantidad = gvDatos.Rows(fila).FindControl("txtgvCant")
-        '  SetFocus(txtCantidad)
+        txtCantidad = gvDatos.Rows(fila).FindControl("txtgvCant")
+        txtCantidad.Focus()
     End Sub
 
     Protected Sub txtgvUnit_TextChanged(sender As Object, e As EventArgs)
-        'Dim txtUnitario As TextBox = CType(sender, TextBox)
-        ' Dim row As GridViewRow = CType(txtUnitario.Parent.Parent.Parent.Parent, GridViewRow)
-        ' Dim fila As Integer = row.RowIndex
+        Dim txtUnitario As TextBox = CType(sender, TextBox)
+        Dim row As GridViewRow = CType(txtUnitario.Parent.Parent.Parent.Parent, GridViewRow)
+        Dim fila As Integer = row.RowIndex
 
         actualizarGrillaDatos()
-        '  txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
+        txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
 
-        '  SetFocus(txtUnitario)
+        txtUnitario.Focus()
 
     End Sub
 
