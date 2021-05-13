@@ -4,7 +4,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-   
+
      <table border="1" class="nav-justified">
         <tr>
             <td colspan="3" style="font-size: x-large; background-color: #666666; color: #FFFFFF;"><span style="font-weight: bold">Ventas</span></td>
@@ -330,12 +330,20 @@
                                                     <asp:BoundField DataField="Stock" DataFormatString="{0:N2}" HeaderText="Stock" />
                                                     <asp:TemplateField HeaderText="Cantidad">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtgvCant" runat="server" AutoPostBack="True" onfocus="Javascript:this.focus();this.select();" OnTextChanged="txtgvCant_TextChanged" Text='<%# Bind("Cantidad") %>' Width="50px"></asp:TextBox>
+                                                            <asp:UpdatePanel ID="UpdatePanel25" runat="server">
+                                                                <ContentTemplate>
+                                                                    <asp:TextBox ID="txtgvCant" runat="server"   AutoPostBack="True" OnTextChanged="txtgvCant_TextChanged" Text='<%# Bind("Cantidad") %>' Width="50px"></asp:TextBox>
+                                                                </ContentTemplate>
+                                                            </asp:UpdatePanel>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Unitario">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtgvUnit" runat="server"  AutoPostBack="True" onfocus="Javascript:this.focus();this.select();" OnTextChanged="txtgvUnit_TextChanged" Text='<%# Bind("Unitario") %>' Width="80px"></asp:TextBox>
+                                                            <asp:UpdatePanel ID="UpdatePanel26" runat="server">
+                                                                <ContentTemplate>
+                                                                    <asp:TextBox ID="txtgvUnit" runat="server" AutoPostBack="True"  OnTextChanged="txtgvUnit_TextChanged" Text='<%# Bind("Unitario") %>' Width="80px"></asp:TextBox>
+                                                                </ContentTemplate>
+                                                            </asp:UpdatePanel>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Impuesto">

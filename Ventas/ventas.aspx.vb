@@ -6,7 +6,6 @@ Public Class ventas
     Dim fila As DataRow
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        MaintainScrollPositionOnPostBack = True
 
         If Not IsPostBack Then
             Dim cmdTabla As New cVentas
@@ -28,6 +27,7 @@ Public Class ventas
             txtDias.Enabled = False
 
         End If
+
     End Sub
 
     Dim totalG As Double = 0
@@ -488,36 +488,27 @@ Public Class ventas
     End Sub
 
     Protected Sub txtgvCant_TextChanged(sender As Object, e As EventArgs)
-        Dim txtCantidad As TextBox = CType(sender, TextBox)
-        Dim row As GridViewRow = CType(txtCantidad.Parent.Parent, GridViewRow)
-        Dim fila As Integer = row.RowIndex
+        ' Dim txtCantidad As TextBox = CType(sender, TextBox)
+        'Dim row As GridViewRow = CType(txtCantidad.Parent.Parent.Parent.Parent, GridViewRow)
+        ' Dim fila As Integer = row.RowIndex
         actualizarGrillaDatos()
-        txtCantidad = gvDatos.Rows(fila).FindControl("txtgvCant")
-        ' SetFocus(txtCantidad)
-        Session("event_controle") = (CType(sender, TextBox))
+        ' txtCantidad = gvDatos.Rows(fila).FindControl("txtgvCant")
+        '  SetFocus(txtCantidad)
     End Sub
 
     Protected Sub txtgvUnit_TextChanged(sender As Object, e As EventArgs)
-        Dim txtUnitario As TextBox = CType(sender, TextBox)
-        Dim row As GridViewRow = CType(txtUnitario.Parent.Parent, GridViewRow)
-        Dim fila As Integer = row.RowIndex
+        'Dim txtUnitario As TextBox = CType(sender, TextBox)
+        ' Dim row As GridViewRow = CType(txtUnitario.Parent.Parent.Parent.Parent, GridViewRow)
+        ' Dim fila As Integer = row.RowIndex
+
         actualizarGrillaDatos()
-        txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
+        '  txtUnitario = gvDatos.Rows(fila).FindControl("txtgvUnit")
+
         '  SetFocus(txtUnitario)
-        Session("event_controle") = (CType(sender, TextBox))
 
     End Sub
-    Protected Sub Page_PreRender(ByVal sender As Object, ByVal e As EventArgs)
-        Try
 
-            If Session("event_controle") IsNot Nothing Then
-                Dim controle As TextBox = CType(Session("event_controle"), TextBox)
-                controle.Focus()
-            End If
 
-        Catch inEx As InvalidCastException
-        End Try
-    End Sub
     Sub btnNuevo_Click()
         Response.Redirect("~/Ventas/ventas.aspx")
     End Sub
