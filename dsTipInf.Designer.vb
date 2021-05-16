@@ -2862,6 +2862,12 @@ Partial Public Class dsTipInf
         
         Private columnventaSaldo As Global.System.Data.DataColumn
         
+        Private columnventaTot5 As Global.System.Data.DataColumn
+        
+        Private columnventaTot10 As Global.System.Data.DataColumn
+        
+        Private columnventaTotExc As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3058,6 +3064,30 @@ Partial Public Class dsTipInf
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ventaTot5Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnventaTot5
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ventaTot10Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnventaTot10
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property ventaTotExcColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnventaTotExc
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3114,9 +3144,12 @@ Partial Public Class dsTipInf
                     ByVal ventaAnul As String,  _
                     ByVal ventaPrecio10 As String,  _
                     ByVal ventaPrecioE As String,  _
-                    ByVal ventaSaldo As String) As dtVentasRow
+                    ByVal ventaSaldo As String,  _
+                    ByVal ventaTot5 As String,  _
+                    ByVal ventaTot10 As String,  _
+                    ByVal ventaTotExc As String) As dtVentasRow
             Dim rowdtVentasRow As dtVentasRow = CType(Me.NewRow,dtVentasRow)
-            Dim columnValuesArray() As Object = New Object() {Usuario, Desde, Hasta, ventaCod, ventaTipo, clieRuc, clieNombre, ventaNroFact, ventaFchFact, accNombre, prodCod, prodNombre, ventaEstado, ventaReparto, ventaDetCant, ventaPrecio5, ventaAnul, ventaPrecio10, ventaPrecioE, ventaSaldo}
+            Dim columnValuesArray() As Object = New Object() {Usuario, Desde, Hasta, ventaCod, ventaTipo, clieRuc, clieNombre, ventaNroFact, ventaFchFact, accNombre, prodCod, prodNombre, ventaEstado, ventaReparto, ventaDetCant, ventaPrecio5, ventaAnul, ventaPrecio10, ventaPrecioE, ventaSaldo, ventaTot5, ventaTot10, ventaTotExc}
             rowdtVentasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVentasRow)
             Return rowdtVentasRow
@@ -3159,6 +3192,9 @@ Partial Public Class dsTipInf
             Me.columnventaPrecio10 = MyBase.Columns("ventaPrecio10")
             Me.columnventaPrecioE = MyBase.Columns("ventaPrecioE")
             Me.columnventaSaldo = MyBase.Columns("ventaSaldo")
+            Me.columnventaTot5 = MyBase.Columns("ventaTot5")
+            Me.columnventaTot10 = MyBase.Columns("ventaTot10")
+            Me.columnventaTotExc = MyBase.Columns("ventaTotExc")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3204,6 +3240,12 @@ Partial Public Class dsTipInf
             MyBase.Columns.Add(Me.columnventaPrecioE)
             Me.columnventaSaldo = New Global.System.Data.DataColumn("ventaSaldo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnventaSaldo)
+            Me.columnventaTot5 = New Global.System.Data.DataColumn("ventaTot5", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnventaTot5)
+            Me.columnventaTot10 = New Global.System.Data.DataColumn("ventaTot10", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnventaTot10)
+            Me.columnventaTotExc = New Global.System.Data.DataColumn("ventaTotExc", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnventaTotExc)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9918,6 +9960,51 @@ Partial Public Class dsTipInf
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ventaTot5() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVentas.ventaTot5Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ventaTot5' de la tabla 'dtVentas' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVentas.ventaTot5Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ventaTot10() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVentas.ventaTot10Column),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ventaTot10' de la tabla 'dtVentas' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVentas.ventaTot10Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property ventaTotExc() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVentas.ventaTotExcColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'ventaTotExc' de la tabla 'dtVentas' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVentas.ventaTotExcColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsUsuarioNull() As Boolean
             Return Me.IsNull(Me.tabledtVentas.UsuarioColumn)
         End Function
@@ -10154,6 +10241,42 @@ Partial Public Class dsTipInf
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetventaSaldoNull()
             Me(Me.tabledtVentas.ventaSaldoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsventaTot5Null() As Boolean
+            Return Me.IsNull(Me.tabledtVentas.ventaTot5Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetventaTot5Null()
+            Me(Me.tabledtVentas.ventaTot5Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsventaTot10Null() As Boolean
+            Return Me.IsNull(Me.tabledtVentas.ventaTot10Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetventaTot10Null()
+            Me(Me.tabledtVentas.ventaTot10Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsventaTotExcNull() As Boolean
+            Return Me.IsNull(Me.tabledtVentas.ventaTotExcColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetventaTotExcNull()
+            Me(Me.tabledtVentas.ventaTotExcColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

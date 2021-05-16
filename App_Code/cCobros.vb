@@ -163,6 +163,17 @@ Public Class cCobros
         dsRubros.Tables("reparto").Columns.Add("Hasta")
         Return dsRubros
     End Function
+    Public Function cInformeSaldosCliente(ByVal desde As String, ByVal hasta As String, ByVal clieCod As Integer) As DataSet
+        Dim daRubros As New MySqlDataAdapter("select * from vventascab where clieCod = " & clieCod & " and ventaEstado='G' and ventaSaldo <> 0 and ventaFchFact BETWEEN '" & desde & "' AND '" & hasta & "' order by ventaCod ", conexion)
+        Dim dsRubros As New DataSet()
+
+        dsRubros.Clear()
+        daRubros.Fill(dsRubros, "reparto")
+        dsRubros.Tables("reparto").Columns.Add("Usuario")
+        dsRubros.Tables("reparto").Columns.Add("Desde")
+        dsRubros.Tables("reparto").Columns.Add("Hasta")
+        Return dsRubros
+    End Function
     Public Function AnularCobros(ByVal id As Integer, ByVal motivo As String) As String
         Dim resultado As String = ""
         Dim cmdInsert As New MySqlCommand

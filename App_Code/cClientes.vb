@@ -66,7 +66,7 @@ Public Class cClientes
         Return resultado
     End Function
     Public Function cGrilla() As DataSet
-        Dim daRubros As New MySqlDataAdapter("select * from vClientesBarrios", conexion)
+        Dim daRubros As New MySqlDataAdapter("select * from vclientesbarrios", conexion)
         Dim dsRubros As New DataSet()
 
         dsRubros.Clear()
@@ -99,7 +99,7 @@ Public Class cClientes
 
         ' crear un data adapter 
 
-        Dim sql As String = "SELECT DISTINCT * FROM vClientes where (cast(clieCod as char) like '%" & filtro & "%'" _
+        Dim sql As String = "SELECT DISTINCT * FROM vclientes where (cast(clieCod as char) like '%" & filtro & "%'" _
                             & " or cast(clieNombre as char) like '%" & filtro & "%' or cast(clieRuc as char) like '%" & filtro & "%')"
         '   & " order by lista_precio "
 

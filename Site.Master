@@ -145,12 +145,14 @@
                        <asp:MenuItem Text="Informe de Gastos" Value="Informe de Gastos" NavigateUrl="~/Gastos/informeGastos.aspx"></asp:MenuItem>
                        <asp:MenuItem Text="Informe de Combustible" Value="Informe de Combustible" NavigateUrl="~/Gastos/informeCombustible.aspx"></asp:MenuItem>
                       <asp:MenuItem Text="Informe de Cobros" Value="Informe de Cobros" NavigateUrl="~/cobros/informeCobros.aspx"></asp:MenuItem>
-                     <asp:MenuItem Text="Saldo Clientes" Value="Saldo Clientes" NavigateUrl="~/cobros/informeSaldos.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Saldo por Fecha" Value="Saldo por Fecha" NavigateUrl="~/cobros/informeSaldos.aspx"></asp:MenuItem>
+                     <asp:MenuItem Text="Saldo por Cliente" Value="Saldo por Cliente" NavigateUrl="~/cobros/infSaldoClie.aspx"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Productores/informeCosecha.aspx" Text="Informes de Cosechas" Value="Informes de Cosechas"></asp:MenuItem>
                       <asp:MenuItem NavigateUrl="~/Empaquetar/informeEmpaquetados.aspx" Text="Informe de Empaquetado" Value="Informe de Empaquetado"></asp:MenuItem>
                          <asp:MenuItem NavigateUrl="~/Ventas/informeMermas.aspx" Text="Informe Mermas" Value="Informe Mermas"></asp:MenuItem>
                       <asp:MenuItem NavigateUrl="~/Ventas/informesNC.aspx" Text="Informes de NC" Value="Informes de NC"></asp:MenuItem>
-                      <asp:MenuItem NavigateUrl="~/Ventas/informeVentas.aspx" Text="Informes de Ventas" Value="Informes de Ventas"></asp:MenuItem>
+                      <asp:MenuItem NavigateUrl="~/Ventas/infVentasCab.aspx" Text="Ventas Totales" Value="Ventas Totales"></asp:MenuItem>
+                     <asp:MenuItem NavigateUrl="~/Ventas/informeVentas.aspx" Text="Informes de Ventas" Value="Informes de Ventas"></asp:MenuItem>
                      <asp:MenuItem NavigateUrl="~/Ventas/informeVentasClientes.aspx" Text="Ventas por Cliente" Value="Ventas por Cliente"></asp:MenuItem>
                      <asp:MenuItem NavigateUrl="~/Ventas/informeVentasAnuladas.aspx" Text="Ventas Anuladas" Value="Ventas Anuladas"></asp:MenuItem>
                       <asp:MenuItem NavigateUrl="~/Informes/informePago.aspx" Text="Informe de Pagos" Value="Informe de Pagos"></asp:MenuItem>

@@ -291,6 +291,7 @@
     <Content Include="cobros\anularCobros.aspx" />
     <Content Include="cobros\cobros.aspx" />
     <Content Include="cobros\informeCobros.aspx" />
+    <Content Include="cobros\infSaldoClie.aspx" />
     <Content Include="cobros\informeSaldos.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -528,6 +529,7 @@
     <Content Include="Ventas\AnularVentas.aspx" />
     <Content Include="Ventas\informeMermas.aspx" />
     <Content Include="Ventas\informesNC.aspx" />
+    <Content Include="Ventas\infVentasCab.aspx" />
     <Content Include="Ventas\informeVentasClientes.aspx" />
     <Content Include="Ventas\informeVentas.aspx" />
     <Content Include="Ventas\informeVentasAnuladas.aspx" />
@@ -600,6 +602,13 @@
     </Compile>
     <Compile Include="cobros\informeCobros.aspx.vb">
       <DependentUpon>informeCobros.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="cobros\infSaldoClie.aspx.designer.vb">
+      <DependentUpon>infSaldoClie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cobros\infSaldoClie.aspx.vb">
+      <DependentUpon>infSaldoClie.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="cobros\informeSaldos.aspx.designer.vb">
@@ -1009,6 +1018,13 @@
       <DependentUpon>informesNC.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Ventas\infVentasCab.aspx.designer.vb">
+      <DependentUpon>infVentasCab.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\infVentasCab.aspx.vb">
+      <DependentUpon>infVentasCab.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Ventas\informeVentasClientes.aspx.designer.vb">
       <DependentUpon>informeVentasClientes.aspx</DependentUpon>
     </Compile>
@@ -1080,6 +1096,8 @@
     <Content Include="Informes\ventasFechaClie.rdlc" />
     <Content Include="Informes\ventasProd.rdlc" />
     <Content Include="Informes\infPagos.rdlc" />
+    <Content Include="Informes\ventasCab.rdlc" />
+    <Content Include="Informes\saldoFechaCliente.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

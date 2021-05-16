@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class informeSaldos
+Public Class infSaldoClie
     Inherits System.Web.UI.Page
 
 
@@ -14,7 +14,7 @@ Public Class informeSaldos
     Sub btnBuscar_Click()
         Dim cargar As New cCobros
         Dim ds As New DataSet
-        ds = cargar.cInformeSaldos(txtFecha.Text, txtHasta.Text)
+        ds = cargar.cInformeSaldosCliente(txtFecha.Text, txtHasta.Text, lblclieCod.Text)
         Dim rds As Microsoft.Reporting.WebForms.ReportDataSource
         Dim dt As New DataTable
         Try
@@ -26,7 +26,7 @@ Public Class informeSaldos
             rds = New Microsoft.Reporting.WebForms.ReportDataSource("dsInfSaldos", dt)
             rvCosecha.LocalReport.DataSources.Clear()
             rvCosecha.LocalReport.DataSources.Add(rds)
-            rvCosecha.LocalReport.ReportPath = "Informes/saldoFecha.rdlc"
+            rvCosecha.LocalReport.ReportPath = "Informes/saldoFechaCliente.rdlc"
             rvCosecha.LocalReport.DisplayName = "informesaldos" + Now().ToString("dd-MM-yy HH:mm")
             rvCosecha.LocalReport.Refresh()
             rvCosecha.Visible = True
@@ -34,6 +34,35 @@ Public Class informeSaldos
             lblResultado.Visible = True
             lblResultado.Text = "No existe datos en ese rango de fecha"
         End Try
+
+    End Sub
+    Sub btnBuscaCl_Click()
+        Dim ds As New cClientes
+        Dim er As String
+        Try
+            gvCliente.DataSourceID = Nothing
+            gvCliente.DataSource = ds.dsBuscarClientes(txtcliente.Text)
+            gvCliente.DataBind()
+
+        Catch ex As Exception
+            er = ex.Message
+
+        End Try
+    End Sub
+    Sub gvCliente_seleccionar()
+        Dim cargar As New cClientes
+        Dim grilla As New DataSet
+        Dim fila As GridViewRow
+        Dim info As String
+        Dim nombre As String
+        fila = gvCliente.SelectedRow
+        info = fila.Cells(0).Text
+        ID = CInt(info)
+        nombre = fila.Cells(2).Text
+        lblclieCod.Text = ID
+        lblCliente.Text = nombre
+        gvCliente.DataSource = Nothing
+        gvCliente.DataBind()
 
     End Sub
 End Class

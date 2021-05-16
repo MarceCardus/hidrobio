@@ -140,7 +140,7 @@
             <td style="height: 22px" colspan="2">
                         <asp:UpdatePanel ID="UpdatePanel13" runat="server">
                             <ContentTemplate>
-                                <asp:GridView ID="gvDatos" runat="server" AutoGenerateColumns="False" CellPadding="3" Width="636px" ShowFooter="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+                                <asp:GridView ID="gvDatos" runat="server" AutoGenerateColumns="False" CellPadding="3" Width="691px" ShowFooter="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
                                     <Columns>
                                         <asp:BoundField DataField="Linea" />
                                         <asp:BoundField DataField="Codigo" HeaderText="Código" />
