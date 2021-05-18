@@ -329,13 +329,13 @@ Partial Public Class ventas
     Protected WithEvents UpdatePanel24 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''Control hfScrollPosition.
+    '''Control UpdatePanel27.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents hfScrollPosition As Global.System.Web.UI.WebControls.HiddenField
+    Protected WithEvents UpdatePanel27 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''Control gvDatos.

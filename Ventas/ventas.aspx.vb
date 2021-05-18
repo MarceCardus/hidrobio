@@ -34,29 +34,38 @@ Public Class ventas
     Dim total5 As Double = 0
     Dim totalE As Double = 0
     Dim total10 As Double = 0
+    Dim iva5 As Double = 0
+    Dim iva10 As Double = 0
+    Dim ivaT As Double = 0
     Protected Sub gvDatos_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles gvDatos.RowDataBound
 
         Try
             If e.Row.RowType = DataControlRowType.DataRow Then
 
                 total5 += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "5"))
+                iva5 += (Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "5"))) / 21
                 total10 += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "10"))
+                iva10 += (Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "10"))) / 11
                 totalE += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Excenta"))
                 totalG = totalE + total5 + total10
-
+                ivaT = iva5 + iva10
             ElseIf (e.Row.RowType = DataControlRowType.Footer) Then
 
-                e.Row.Cells(3).Text = "Totales:"
-                e.Row.Cells(6).Text = totalE.ToString("N0")
+                e.Row.Cells(3).Text = "Total:"
+                e.Row.Cells(7).Text = totalE.ToString("N0")
+                e.Row.Cells(5).Text = "IVA:"
+                e.Row.Cells(6).Text = ivaT.ToString("N0")
 
-                e.Row.Cells(7).Text = total5.ToString("N0")
+                e.Row.Cells(8).Text = total5.ToString("N0")
 
-                e.Row.Cells(8).Text = total10.ToString("N0")
-                e.Row.Cells(9).Text = totalG.ToString("N0")
-                e.Row.Cells(7).HorizontalAlign = HorizontalAlign.Center
-                e.Row.Cells(9).HorizontalAlign = HorizontalAlign.Center
-                e.Row.Cells(8).HorizontalAlign = HorizontalAlign.Center
-                e.Row.Cells(6).HorizontalAlign = HorizontalAlign.Center
+                e.Row.Cells(9).Text = total10.ToString("N0")
+                e.Row.Cells(4).Text = totalG.ToString("N0")
+                e.Row.Cells(7).HorizontalAlign = HorizontalAlign.Left
+                e.Row.Cells(9).HorizontalAlign = HorizontalAlign.Left
+                e.Row.Cells(8).HorizontalAlign = HorizontalAlign.Left
+                e.Row.Cells(4).HorizontalAlign = HorizontalAlign.Left
+                e.Row.Cells(3).HorizontalAlign = HorizontalAlign.Right
+                e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Right
                 e.Row.Font.Bold = True
 
 
