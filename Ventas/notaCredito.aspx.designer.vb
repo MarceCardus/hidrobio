@@ -77,58 +77,40 @@ Partial Public Class notaCredito
     Protected WithEvents txtMotivo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control UpdatePanel8.
+    '''Control UpdatePanel6.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents UpdatePanel8 As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents UpdatePanel6 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''Control txtClie.
+    '''Control txtcliente.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents txtClie As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtcliente As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Control UpdatePanel16.
+    '''Control UpdatePanel21.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents UpdatePanel16 As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents UpdatePanel21 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''Control gvBuscar.
+    '''Control gvCliente.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents gvBuscar As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Control UpdatePanel3.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents UpdatePanel3 As Global.System.Web.UI.UpdatePanel
-
-    '''<summary>
-    '''Control gvVentas.
-    '''</summary>
-    '''<remarks>
-    '''Campo generado automáticamente.
-    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-    '''</remarks>
-    Protected WithEvents gvVentas As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gvCliente As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
     '''Control UpdatePanel7.
@@ -140,13 +122,22 @@ Partial Public Class notaCredito
     Protected WithEvents UpdatePanel7 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''Control lblventCod.
+    '''Control lblclieCod.
     '''</summary>
     '''<remarks>
     '''Campo generado automáticamente.
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
-    Protected WithEvents lblventCod As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblclieCod As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control lblRuc.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents lblRuc As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Control lblCliente.
@@ -246,4 +237,31 @@ Partial Public Class notaCredito
     '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
     '''</remarks>
     Protected WithEvents lblResultado As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Control UpdatePanel8.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents UpdatePanel8 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''Control txtClie.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtClie As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Control gvBuscar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents gvBuscar As Global.System.Web.UI.WebControls.GridView
 End Class

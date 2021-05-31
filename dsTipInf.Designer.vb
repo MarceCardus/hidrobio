@@ -5131,6 +5131,10 @@ Partial Public Class dsTipInf
         
         Private columnstockCantidad As Global.System.Data.DataColumn
         
+        Private columndevCant As Global.System.Data.DataColumn
+        
+        Private columndevPrecio As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -5359,6 +5363,22 @@ Partial Public Class dsTipInf
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property devCantColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndevCant
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property devPrecioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndevPrecio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5419,9 +5439,11 @@ Partial Public Class dsTipInf
                     ByVal compras5 As String,  _
                     ByVal produccCod As String,  _
                     ByVal producCant As String,  _
-                    ByVal stockCantidad As String) As dtVentasProdRow
+                    ByVal stockCantidad As String,  _
+                    ByVal devCant As String,  _
+                    ByVal devPrecio As String) As dtVentasProdRow
             Dim rowdtVentasProdRow As dtVentasProdRow = CType(Me.NewRow,dtVentasProdRow)
-            Dim columnValuesArray() As Object = New Object() {Usuario, Desde, Hasta, ventaCod, ventaNroFact, ventaFchFact, ventaTotal, ventaEstado, ventaDetCant, ventaPrecio5, prodCod, prodNombre, empaCod, empaNombre, mermacod, mermaFecha, mermaEstado, mermaCant, comprasCod, comprasCant, compras5, produccCod, producCant, stockCantidad}
+            Dim columnValuesArray() As Object = New Object() {Usuario, Desde, Hasta, ventaCod, ventaNroFact, ventaFchFact, ventaTotal, ventaEstado, ventaDetCant, ventaPrecio5, prodCod, prodNombre, empaCod, empaNombre, mermacod, mermaFecha, mermaEstado, mermaCant, comprasCod, comprasCant, compras5, produccCod, producCant, stockCantidad, devCant, devPrecio}
             rowdtVentasProdRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowdtVentasProdRow)
             Return rowdtVentasProdRow
@@ -5468,6 +5490,8 @@ Partial Public Class dsTipInf
             Me.columnproduccCod = MyBase.Columns("produccCod")
             Me.columnproducCant = MyBase.Columns("producCant")
             Me.columnstockCantidad = MyBase.Columns("stockCantidad")
+            Me.columndevCant = MyBase.Columns("devCant")
+            Me.columndevPrecio = MyBase.Columns("devPrecio")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5521,6 +5545,10 @@ Partial Public Class dsTipInf
             MyBase.Columns.Add(Me.columnproducCant)
             Me.columnstockCantidad = New Global.System.Data.DataColumn("stockCantidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstockCantidad)
+            Me.columndevCant = New Global.System.Data.DataColumn("devCant", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndevCant)
+            Me.columndevPrecio = New Global.System.Data.DataColumn("devPrecio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndevPrecio)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12233,6 +12261,36 @@ Partial Public Class dsTipInf
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property devCant() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVentasProd.devCantColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'devCant' de la tabla 'dtVentasProd' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVentasProd.devCantColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property devPrecio() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabledtVentasProd.devPrecioColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'devPrecio' de la tabla 'dtVentasProd' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabledtVentasProd.devPrecioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsUsuarioNull() As Boolean
             Return Me.IsNull(Me.tabledtVentasProd.UsuarioColumn)
         End Function
@@ -12517,6 +12575,30 @@ Partial Public Class dsTipInf
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetstockCantidadNull()
             Me(Me.tabledtVentasProd.stockCantidadColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsdevCantNull() As Boolean
+            Return Me.IsNull(Me.tabledtVentasProd.devCantColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetdevCantNull()
+            Me(Me.tabledtVentasProd.devCantColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsdevPrecioNull() As Boolean
+            Return Me.IsNull(Me.tabledtVentasProd.devPrecioColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetdevPrecioNull()
+            Me(Me.tabledtVentasProd.devPrecioColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

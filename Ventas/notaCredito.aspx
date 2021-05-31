@@ -38,40 +38,39 @@
             </td>
         </tr>
         <tr>
-            <td style="height: 22px; width: 295px">Venta</td>
+            <td style="height: 22px; width: 295px">Cliente</td>
             <td style="height: 22px">
             
-
-  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ModalBuscar">Buscar</button>
-
-  <div class="modal fade"  id="ModalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                    <ContentTemplate>
+                       
+                           
+                        <button type="button" class="btn btn-outline-secondary" runat="server" data-toggle="modal"  onserverclick="btnBuscaCl_Click"  data-target="#exampleModalCenter">Buscar</button>
+                           &nbsp;
+                           <asp:TextBox ID="txtcliente" runat="server"></asp:TextBox>
+                           </ContentTemplate>
+                </asp:UpdatePanel>
+                       <!-- Modal -->
+<div class="modal fade"  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ModalLongBuscar">Buscar Facturas</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Buscar Clientes</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">x</span>
         </button>
       </div>
       <div class="modal-body">
-           <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                                   
+                               
+           <asp:UpdatePanel ID="UpdatePanel21" runat="server">
                     <ContentTemplate>
-            <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary" runat="server" onserverclick="btnBuscaClientes" type="button">Buscar</button>
-  </div>
-  <asp:TextBox ID="txtClie" runat="server"></asp:TextBox>
-</div>                       
-            </ContentTemplate>
-                </asp:UpdatePanel>                     
-           <asp:UpdatePanel ID="UpdatePanel16" runat="server">
-                     <ContentTemplate>
-                        <asp:GridView ID="gvBuscar" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="93px" Width="361px">
+                        <asp:GridView ID="gvCliente" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="93px" Width="361px">
                             <Columns>
                                 <asp:BoundField DataField="clieCod" HeaderText="Cód" />
                                 <asp:BoundField DataField="clieRuc" HeaderText="Ruc" />
                                 <asp:BoundField DataField="clieNombre" HeaderText="Cliente" />
-                                <asp:CommandField  ShowSelectButton="True"  runat="server"  ButtonType="Image" SelectImageUrl="~/imagenes/flecha1.png" >
+                                <asp:CommandField  ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/imagenes/flecha1.png" >
                                 <ControlStyle Height="30px" Width="30px" />
                                 </asp:CommandField>
                             </Columns>
@@ -85,44 +84,17 @@
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
                             <SortedDescendingHeaderStyle BackColor="#00547E" />
                         </asp:GridView>
-                     </ContentTemplate>
-                </asp:UpdatePanel>   
-                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                     <ContentTemplate>
-                        <%--Grilla Facturas--%>
-
-                            <asp:GridView ID="gvVentas" runat="server" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" style="border-style: solid; border-width: 1px; padding: 1px">
-                                            <AlternatingRowStyle BackColor="White" />
-                                            <Columns>
-                                                <asp:BoundField DataField="ventaCod" HeaderText="Cód" />
-                                                <asp:BoundField DataField="ventaFchFact" HeaderText="Fecha" />
-                                                <asp:BoundField DataField="ventaNroFact" HeaderText="Factura" />
-                                                <asp:BoundField DataField="ventaTotal" HeaderText="Total" />
-                                                <asp:BoundField DataField="ventaSaldo" HeaderText="Saldo" />
-                                                <asp:BoundField DataField="ventaEstado" HeaderText="Estado" />
-                                                <asp:CommandField runat="server" ShowSelectButton="True" ButtonType="Image" SelectImageUrl="~/imagenes/flecha1.png"  />
-                                            </Columns>
-                                            <FooterStyle BackColor="#CCCC99" />
-                                            <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                                            <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                                            <RowStyle BackColor="#F7F7DE" />
-                                            <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
-                                            <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                                            <SortedAscendingHeaderStyle BackColor="#848384" />
-                                            <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                                            <SortedDescendingHeaderStyle BackColor="#575357" />
-                                        </asp:GridView>
-                       
+                       </div>
                           </ContentTemplate>
                 </asp:UpdatePanel>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" runat="server"   onserverclick="TraerFacturas"  data-dismiss="modal" class="btn btn-primary" >Seleccionar</button>
+        <button type="button" runat="server"   onserverclick="gvCliente_seleccionar"  data-dismiss="modal" class="btn btn-primary" >Seleccionar</button>
       </div>
     </div>
   </div>
 </div>
-    </div>     
+    </div>
                     
 
             </td>
@@ -132,7 +104,9 @@
                 <asp:UpdatePanel ID="UpdatePanel7" runat="server">
                     <ContentTemplate>
                         <strong>
-                        <asp:Label ID="lblventCod" runat="server" style="color: #1C5E55"></asp:Label>
+                        <asp:Label ID="lblclieCod" runat="server" style="color: #1C5E55"></asp:Label>
+                        &nbsp;-
+                        <asp:Label ID="lblRuc" runat="server" style="color: #1C5E55"></asp:Label>
                         &nbsp;-
                         <asp:Label ID="lblCliente" runat="server" style="color: #1C5E55"></asp:Label>
                         </strong>
@@ -158,7 +132,7 @@
             <td style="height: 22px; ">
                 <asp:UpdatePanel ID="UpdatePanel18" runat="server">
                     <ContentTemplate>
-                        <asp:RadioButtonList ID="rblVerduras" runat="server" AutoPostBack="True">
+                        <asp:RadioButtonList ID="rblVerduras" runat="server" AutoPostBack="True" RepeatColumns="2">
                         </asp:RadioButtonList>
                     </ContentTemplate>
                 </asp:UpdatePanel>
@@ -260,6 +234,48 @@
                     </ContentTemplate>
                 </asp:UpdatePanel>
             </td>
+                                <!-- Modal Buscar-->
+<div class="modal fade"  id="ModalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLongBuscar">Buscar Facturas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">x</span>
+        </button>
+      </div>
+      <div class="modal-body">
+           <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                    <ContentTemplate>
+            <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" runat="server" onserverclick="btnBuscaClientes" type="button">Buscar</button>
+  </div>
+  <asp:TextBox ID="txtClie" runat="server"></asp:TextBox>
+</div>                       
+            </ContentTemplate>
+                </asp:UpdatePanel>                     
+        
+                        <asp:GridView ID="gvBuscar" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Height="93px" Width="361px">
+                            <Columns>
+                                <asp:BoundField DataField="clieCod" HeaderText="Cód" />
+                                <asp:BoundField DataField="clieRuc" HeaderText="Ruc" />
+                                <asp:BoundField DataField="clieNombre" HeaderText="Cliente" />
+                                <asp:CommandField  ShowSelectButton="True"  runat="server"  ButtonType="Image" SelectImageUrl="~/imagenes/flecha1.png" >
+                                <ControlStyle Height="30px" Width="30px" />
+                                </asp:CommandField>
+                            </Columns>
+                            <FooterStyle BackColor="White" ForeColor="#000066" />
+                            <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
+                            <RowStyle ForeColor="#000066" />
+                            <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#007DBB" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#00547E" />
+                        </asp:GridView>
         </tr>
     </table>
+
 </asp:Content>

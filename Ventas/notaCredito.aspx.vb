@@ -4,7 +4,38 @@ Public Class notaCredito
     Inherits System.Web.UI.Page
     Dim tabla As New DataTable
     Dim fila As DataRow
+    Sub btnBuscaCl_Click()
+        Dim ds As New cClientes
+        Dim er As String
+        Try
+            gvCliente.DataSourceID = Nothing
+            gvCliente.DataSource = ds.dsBuscarClientes(txtcliente.Text)
+            gvCliente.DataBind()
 
+        Catch ex As Exception
+            er = ex.Message
+
+        End Try
+    End Sub
+    Sub gvCliente_seleccionar()
+        Dim cargar As New cClientes
+        Dim grilla As New DataSet
+        Dim fila As GridViewRow
+        Dim info As String
+        Dim nombre As String
+        Dim ruc As String
+        fila = gvCliente.SelectedRow
+        info = fila.Cells(0).Text
+        ID = CInt(info)
+        ruc = fila.Cells(1).Text
+        nombre = fila.Cells(2).Text
+        lblclieCod.Text = ID
+        lblRuc.Text = ruc
+        lblCliente.Text = nombre
+        gvCliente.DataSource = Nothing
+        gvCliente.DataBind()
+
+    End Sub
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         If Not IsPostBack Then
@@ -60,7 +91,7 @@ Public Class notaCredito
         Try
             'haciendo bucle al gridview
 
-            codprod = cventa.InsertarCabNC(lblventCod.Text, txtfecha.Text, txtFactura.Text, exc, i5, i10, TF, tiva5, tiva10, tivas)
+            codprod = cventa.InsertarCabNC(lblclieCod.Text, txtfecha.Text, txtFactura.Text, exc, i5, i10, TF, tiva5, tiva10, tivas)
             If IsNumeric(codprod) Then
                 'codprod = codprod + 1
                 For i = 0 To gvDatos.Rows.Count - 1
@@ -127,38 +158,38 @@ Public Class notaCredito
     '    gvVentas.DataBind()
 
     'End Sub
-    Sub TraerFacturas()
-        Dim row As GridViewRow
-        Dim info As String
-        Dim id As Integer
-        Dim modificar As New cVentas
-        Dim dt As DataTable
+    'Sub TraerFacturas()
+    '    Dim row As GridViewRow
+    '    Dim info As String
+    '    Dim id As Integer
+    '    Dim modificar As New cVentas
+    '    Dim dt As DataTable
 
-        row = gvVentas.SelectedRow
-        info = row.Cells(0).Text
-        id = CInt(info)
-        Dim ds As New DataSet
-        ds = modificar.Ventas_det(id)
-        dt = ds.Tables(0)
-        tabla = Session("Tabla")
+    '    row = gvVentas.SelectedRow
+    '    info = row.Cells(0).Text
+    '    id = CInt(info)
+    '    Dim ds As New DataSet
+    '    ds = modificar.Ventas_det(id)
+    '    dt = ds.Tables(0)
+    '    tabla = Session("Tabla")
 
-        For i = 0 To dt.Rows.Count - 1
+    '    For i = 0 To dt.Rows.Count - 1
 
-            lblventCod.Text = dt.Rows(i)("ventaCod").ToString
+    '        lblclieCod.Text = dt.Rows(i)("ventaCod").ToString
 
-            lblCliente.Text = dt.Rows(i)("clieNombre").ToString
+    '        lblCliente.Text = dt.Rows(i)("clieNombre").ToString
 
-        Next
-
-
-        gvDatos.DataSource = tabla
-        gvDatos.DataBind()
-        Session("Tabla") = tabla
+    '    Next
 
 
+    '    gvDatos.DataSource = tabla
+    '    gvDatos.DataBind()
+    '    Session("Tabla") = tabla
 
 
-    End Sub
+
+
+    'End Sub
 
     Protected Sub rblSt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles rblSt.SelectedIndexChanged
         cargarVerduras()
@@ -198,26 +229,26 @@ Public Class notaCredito
 
         End Try
     End Sub
-    Sub TraerVentas()
-        Dim cargar As New cClientes
-        Dim cobros As New cCobros
-        Dim grilla As New DataSet
-        Dim fila As GridViewRow
-        Dim info As String
-        Dim nombre As String
-        fila = gvBuscar.SelectedRow
-        info = fila.Cells(0).Text
-        ID = CInt(info)
-        nombre = fila.Cells(2).Text
+    'Sub TraerVentas()
+    '    Dim cargar As New cClientes
+    '    Dim cobros As New cCobros
+    '    Dim grilla As New DataSet
+    '    Dim fila As GridViewRow
+    '    Dim info As String
+    '    Dim nombre As String
+    '    fila = gvBuscar.SelectedRow
+    '    info = fila.Cells(0).Text
+    '    ID = CInt(info)
+    '    nombre = fila.Cells(2).Text
 
-        'gvCliente.DataSource = Nothing
-        'gvCliente.DataBind()
+    '    'gvCliente.DataSource = Nothing
+    '    'gvCliente.DataBind()
 
-        gvVentas.DataSourceID = Nothing
-        gvVentas.DataSource = cobros.dsBuscarClientes(ID)
-        gvVentas.DataBind()
-        gvVentas.Visible = True
-    End Sub
+    '    gvVentas.DataSourceID = Nothing
+    '    gvVentas.DataSource = cobros.dsBuscarClientes(ID)
+    '    gvVentas.DataBind()
+    '    gvVentas.Visible = True
+    'End Sub
 
     Protected Sub gvDatos_RowDataBound_delete(sender As Object, e As GridViewDeleteEventArgs) Handles gvDatos.RowDeleting
 
@@ -260,26 +291,26 @@ Public Class notaCredito
         End Try
 
     End Sub
-    Protected Sub gvDatos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles gvBuscar.SelectedIndexChanged
-        Dim cargar As New cClientes
-        Dim cobros As New cCobros
-        Dim grilla As New DataSet
-        Dim fila As GridViewRow
-        Dim info As String
-        Dim nombre As String
-        fila = gvBuscar.SelectedRow
-        info = fila.Cells(0).Text
-        ID = CInt(info)
-        nombre = fila.Cells(2).Text
+    'Protected Sub gvDatos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles gvBuscar.SelectedIndexChanged
+    '    Dim cargar As New cClientes
+    '    Dim cobros As New cCobros
+    '    Dim grilla As New DataSet
+    '    Dim fila As GridViewRow
+    '    Dim info As String
+    '    Dim nombre As String
+    '    fila = gvBuscar.SelectedRow
+    '    info = fila.Cells(0).Text
+    '    ID = CInt(info)
+    '    nombre = fila.Cells(2).Text
 
-        'gvCliente.DataSource = Nothing
-        'gvCliente.DataBind()
+    '    'gvCliente.DataSource = Nothing
+    '    'gvCliente.DataBind()
 
-        gvVentas.DataSourceID = Nothing
-        gvVentas.DataSource = cobros.dsBuscarClientes(ID)
-        gvVentas.DataBind()
-        gvVentas.Visible = True
-    End Sub
+    '    gvVentas.DataSourceID = Nothing
+    '    gvVentas.DataSource = cobros.dsBuscarClientes(ID)
+    '    gvVentas.DataBind()
+    '    gvVentas.Visible = True
+    'End Sub
     Protected Sub ddlImpuesto_SelectedIndexChanged(sender As Object, e As EventArgs)
         actualizarGrillaDatos()
     End Sub

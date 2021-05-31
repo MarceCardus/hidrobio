@@ -216,7 +216,7 @@ Public Class cVentas
         Return ds
         conexion.Close()
     End Function
-    Public Function InsertarCabNC(ByVal ventaCod As Integer, ByVal fecha As Date, ByVal fact As String,
+    Public Function InsertarCabNC(ByVal cliecod As Integer, ByVal fecha As Date, ByVal fact As String,
                            ByVal excenta As Double, ByVal iva5 As Double, ByVal iva10 As Double,
                              ByVal total As Double, ByVal tiva5 As Double, ByVal tiva10 As Double, ByVal tivas As Double) As String
         Dim resultado As Integer
@@ -225,7 +225,7 @@ Public Class cVentas
         cmdInsert.CommandText = "spINC"
         cmdInsert.CommandType = CommandType.StoredProcedure
         cmdInsert.Connection = conexion
-        cmdInsert.Parameters.Add("@venta", MySqlDbType.Int32).Value = ventaCod
+        cmdInsert.Parameters.Add("@cliecod", MySqlDbType.Int32).Value = cliecod
         cmdInsert.Parameters.Add("@fecha", MySqlDbType.Date).Value = fecha
         cmdInsert.Parameters.Add("@fact", MySqlDbType.VarChar).Value = fact
         cmdInsert.Parameters.Add("@Usuario", MySqlDbType.Int32).Value = HttpContext.Current.Session("accCod")
